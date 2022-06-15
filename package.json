@@ -1,0 +1,46 @@
+{
+  "name": "main",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "build": "ng build --configuration production",
+    "watch": "ng build --watch --configuration development",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:ci": "jest --runInBand",
+    "prepare": "husky install",
+    "lint": "lint-staged"
+  },
+  "lint-staged": {
+    "*": "prettier --write"
+  },
+  "dependencies": {
+    "@angular/animations": "~13.3.0",
+    "@angular/common": "~13.3.0",
+    "@angular/compiler": "~13.3.0",
+    "@angular/core": "~13.3.0",
+    "@angular/forms": "~13.3.0",
+    "@angular/platform-browser": "~13.3.0",
+    "@angular/platform-browser-dynamic": "~13.3.0",
+    "@angular/router": "~13.3.0",
+    "rxjs": "~7.5.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~13.3.8",
+    "@angular/cli": "~13.3.8",
+    "@angular/compiler-cli": "~13.3.0",
+    "@ngx-translate/core": "^13.0.0",
+    "@types/jest": "^28.1.1",
+    "@types/node": "^12.11.1",
+    "husky": "^8.0.0",
+    "intl-messageformat": "^10.1.0",
+    "jest": "^28.1.1",
+    "jest-preset-angular": "^12.1.0",
+    "lint-staged": "^13.0.1",
+    "ng-packagr": "^13.0.0",
+    "prettier": "^2.7.0",
+    "typescript": "~4.6.2"
+  }
+}
