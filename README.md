@@ -1,6 +1,8 @@
-# ngx-translate-formatjs-compiler
+# ngx-translate-formatjs-compiler [![Node.js CI](https://github.com/stefanseeger/ngx-translate-formatjs-compiler/actions/workflows/node.js.yml/badge.svg)](https://github.com/stefanseeger/ngx-translate-formatjs-compiler/actions/workflows/node.js.yml) [![npm version](https://badge.fury.io/js/ngx-translate-formatjs-compiler.svg)](https://badge.fury.io/js/ngx-translate-formatjs-compiler)
 
 [Format.js](https://formatjs.io/) based [@ngx/translate](https://github.com/ngx-translate/core) compiler.
+
+Supports Angular 11 | 12 | 13 | 14
 
 ## Install
 

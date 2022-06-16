@@ -1,6 +1,12 @@
 {
   "name": "main",
   "version": "0.0.0",
+  "author": {
+    "name": "Stefan Seeger"
+  },
+  "repository": {
+    "url": "https://github.com/stefanseeger/ngx-translate-formatjs-compiler"
+  },
   "scripts": {
     "ng": "ng",
     "build": "ng build --configuration production && copyfiles README.md LICENSE dist",

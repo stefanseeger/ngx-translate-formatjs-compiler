@@ -1,11 +1,17 @@
 {
   "name": "ngx-translate-formatjs-compiler",
   "version": "1.0.1",
+  "author": {
+    "name": "Stefan Seeger"
+  },
+  "repository": {
+    "url": "https://github.com/stefanseeger/ngx-translate-formatjs-compiler"
+  },
   "peerDependencies": {
     "@angular/common": "11 | 12 | 13 | 14",
     "@angular/core": "11 | 12 | 13 | 14",
     "@ngx-translate/core": "11 | 12 | 13 | 14",
-    "intl-messageformat": "^10.1.0"
+    "intl-messageformat": "10"
   },
   "dependencies": {
     "tslib": "^2.3.0"
@@ -15,7 +21,10 @@
     "translate",
     "messageformat",
     "@ngx-translate",
-    "format.js"
+    "format.js",
+    "icu",
+    "angular 2",
+    "i18n"
   ],
   "license": "MIT"
 }
