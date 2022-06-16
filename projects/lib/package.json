@@ -1,6 +1,6 @@
 {
   "name": "ngx-translate-formatjs-compiler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "peerDependencies": {
     "@angular/common": "11 | 12 | 13 | 14",
     "@angular/core": "11 | 12 | 13 | 14",
@@ -9,5 +9,13 @@
   },
   "dependencies": {
     "tslib": "^2.3.0"
-  }
+  },
+  "keywords": [
+    "angular",
+    "translate",
+    "messageformat",
+    "@ngx-translate",
+    "format.js"
+  ],
+  "license": "MIT"
 }
