@@ -12,29 +12,29 @@
     "prerelease": "cd ./projects/lib && npm version prerelease"
   },
   "dependencies": {
-    "@angular/animations": "~13.3.0",
-    "@angular/common": "~13.3.0",
-    "@angular/compiler": "~13.3.0",
-    "@angular/core": "~13.3.0",
-    "@angular/forms": "~13.3.0",
-    "@angular/platform-browser": "~13.3.0",
-    "@angular/platform-browser-dynamic": "~13.3.0",
-    "@angular/router": "~13.3.0",
+    "@angular/animations": "~14.0.0",
+    "@angular/common": "~14.0.0",
+    "@angular/compiler": "~14.0.0",
+    "@angular/core": "~14.0.0",
+    "@angular/forms": "~14.0.0",
+    "@angular/platform-browser": "~14.0.0",
+    "@angular/platform-browser-dynamic": "~14.0.0",
+    "@angular/router": "~14.0.0",
+    "@ngx-translate/core": "^14.0.0",
     "intl-messageformat": "^10.1.0",
-    "@ngx-translate/core": "^13.0.0",
+    "messageformat": "^2.3.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~13.3.8",
+    "@angular-devkit/build-angular": "~14.0.0",
     "@angular-eslint/builder": "13.5.0",
     "@angular-eslint/eslint-plugin": "13.5.0",
     "@angular-eslint/eslint-plugin-template": "13.5.0",
-    "@angular-eslint/schematics": "13.5.0",
     "@angular-eslint/template-parser": "13.5.0",
-    "@angular/cli": "~13.3.8",
-    "@angular/compiler-cli": "~13.3.0",
+    "@angular/cli": "~14.0.0",
+    "@angular/compiler-cli": "~14.0.0",
     "@types/jest": "^28.1.1",
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "5.27.1",
@@ -45,12 +45,19 @@
     "jest": "^28.1.1",
     "jest-preset-angular": "^12.1.0",
     "lint-staged": "^13.0.1",
-    "ng-packagr": "^13.0.0",
+    "ng-packagr": "^14.0.0",
     "prettier": "^2.7.0",
     "typescript": "~4.6.2"
   },
   "lint-staged": {
     "*.{js,ts}": "eslint --cache --fix",
     "*.{js,ts,css,md,json}": "prettier --write"
-  }
+  },
+  "keywords": [
+    "angular",
+    "translate",
+    "messageformat",
+    "@ngx-translate",
+    "format.js"
+  ]
 }

@@ -31,13 +31,6 @@ import { AppComponent } from './app';
 export class AppModule {}
 ```
 
-## Limitations
-
-Currently, only flat translation objects are supported
-
-- ✅`{"PARENT_CHILD": "Translation"}`
-- ❌`{"PARENT": {"CHILD": "Translation"}}`
-
 ## Further links
 
 - [Supported Syntax](https://formatjs.io/docs/core-concepts/icu-syntax)

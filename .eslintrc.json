@@ -29,7 +29,8 @@
             "prefix": "lib",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "no-multi-spaces": "error"
       }
     },
     {

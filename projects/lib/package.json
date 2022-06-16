@@ -1,10 +1,10 @@
 {
   "name": "ngx-translate-formatjs-compiler",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0",
   "peerDependencies": {
-    "@angular/common": "^13.3.0",
-    "@angular/core": "^13.3.0",
-    "@ngx-translate/core": "^13.0.0",
+    "@angular/common": "11 | 12 | 13 | 14",
+    "@angular/core": "11 | 12 | 13 | 14",
+    "@ngx-translate/core": "11 | 12 | 13 | 14",
     "intl-messageformat": "^10.1.0"
   },
   "dependencies": {

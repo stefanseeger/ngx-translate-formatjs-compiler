@@ -13,7 +13,8 @@ import { TranslateFormatJsCompiler } from './translate-format-js-compiler';
   template: `
     <div id="select">{{ 'TEST_SELECT' | translate: { text: this.text } }}</div>
     <div id="plural">{{ 'TEST_PLURAL' | translate: { num: this.num } }}</div>
-    <div id="deep">{{ 'DEEP_TEST' | translate: { num: this.num } }}</div>
+    <div id="deep">{{ 'DEEP.TEST' | translate }}</div>
+    <div id="html" [innerHtml]="'HTML' | translate"></div>
   `,
 })
 class TestVVTranslateParserComponent {
@@ -40,6 +41,7 @@ describe('VVTranslateParser', () => {
                   DEEP: {
                     TEST: 'deep test',
                   },
+                  HTML: `'<h1>Headline</h1>'`,
                 }),
             },
           },
@@ -52,6 +54,8 @@ describe('VVTranslateParser', () => {
         }),
       ],
     }).compileComponents();
+    fixture = TestBed.createComponent(TestVVTranslateParserComponent);
+    fixture.detectChanges();
   }));
 
   it.each`
@@ -62,7 +66,6 @@ describe('VVTranslateParser', () => {
     ${'D'} | ${'Ich wohne in einem Garten.'}
     ${'E'} | ${'Ich wohne in einem Garten.'}
   `('should translate select correctly with $text', ({ text, translation }) => {
-    fixture = TestBed.createComponent(TestVVTranslateParserComponent);
     fixture.componentInstance.text = text;
     fixture.detectChanges();
 
@@ -79,12 +82,24 @@ describe('VVTranslateParser', () => {
     ${3} | ${'Gib mir mehr Bier'}
     ${4} | ${'Gib mir mehr Bier'}
   `('should translate plural correctly with $num', ({ num, translation }) => {
-    fixture = TestBed.createComponent(TestVVTranslateParserComponent);
     fixture.componentInstance.num = num;
     fixture.detectChanges();
 
     expect(
       fixture.debugElement.nativeElement.querySelector('#plural').textContent,
     ).toBe(translation);
+  });
+
+  it('should support deep', () => {
+    expect(
+      fixture.debugElement.nativeElement.querySelector('#deep').textContent,
+    ).toBe('deep test');
+  });
+
+  it('should support html', () => {
+    expect(
+      fixture.debugElement.nativeElement.querySelector('#html > h1')
+        .textContent,
+    ).toBe('Headline');
   });
 });
