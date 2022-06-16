@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "build": "ng build --configuration production",
+    "build": "ng build --configuration production && copyfiles README.md LICENSE dist",
     "watch": "ng build --watch --configuration development",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:ci": "jest --runInBand"
+    "test:ci": "jest --runInBand",
+    "version": "cd ./projects/lib && npm version patch --preid alpha",
+    "prerelease": "cd ./projects/lib && npm version prerelease"
   },
   "dependencies": {
     "@angular/animations": "~13.3.0",
@@ -18,6 +20,8 @@
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
+    "intl-messageformat": "^10.1.0",
+    "@ngx-translate/core": "^13.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -31,14 +35,13 @@
     "@angular-eslint/template-parser": "13.5.0",
     "@angular/cli": "~13.3.8",
     "@angular/compiler-cli": "~13.3.0",
-    "@ngx-translate/core": "^13.0.0",
     "@types/jest": "^28.1.1",
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "5.27.1",
     "@typescript-eslint/parser": "5.27.1",
+    "copyfiles": "^2.4.1",
     "eslint": "^8.17.0",
     "husky": "^8.0.1",
-    "intl-messageformat": "^10.1.0",
     "jest": "^28.1.1",
     "jest-preset-angular": "^12.1.0",
     "lint-staged": "^13.0.1",
