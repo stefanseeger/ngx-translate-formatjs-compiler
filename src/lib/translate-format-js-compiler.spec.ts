@@ -19,6 +19,7 @@ import { TranslateFormatJsCompiler } from './translate-format-js-compiler';
 })
 class TestVVTranslateParserComponent {
   @Input() num = 0;
+
   @Input() text = '';
 }
 
@@ -32,17 +33,16 @@ describe('VVTranslateParser', () => {
           loader: {
             provide: TranslateLoader,
             useValue: {
-              getTranslation: () =>
-                of({
-                  TEST_SELECT:
+              getTranslation: () => of({
+                TEST_SELECT:
                     'Ich wohne in einem {text, select, A {Haus} B {Hotel} C {Keller} other {Garten}}.',
-                  TEST_PLURAL:
+                TEST_PLURAL:
                     'Gib mir {num, plural, =0 {Kein} =1 {Ein} =2 {Zwei} other {mehr}} Bier',
-                  DEEP: {
-                    TEST: 'deep test',
-                  },
-                  HTML: `'<h1>Headline</h1>'`,
-                }),
+                DEEP: {
+                  TEST: 'deep test',
+                },
+                HTML: "'<h1>Headline</h1>'",
+              }),
             },
           },
           defaultLanguage: 'de',

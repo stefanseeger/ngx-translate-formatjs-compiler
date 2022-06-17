@@ -9,35 +9,38 @@ export class TranslateFormatJsCompiler extends TranslateCompiler {
     value: string,
     lang: string,
   ): string | ((params?: Record<string, unknown>) => any) {
-    return this.wrap(value, lang);
-  }
-
-  /** Compile translations object */
-  compileTranslations(translations: any, lang: string): any {
-    return this.wrapRecursively(translations, lang);
-  }
-
-  private wrap(value: string, lang: string): (params: any) => any {
     return (params?: any): any => {
       try {
         return new IntlMessageFormat(value, lang).format(params);
       } catch (e: any) {
+        // eslint-disable-next-line no-console
         console.error(e);
         return `ERROR in: "${value}"`;
       }
     };
   }
 
-  private wrapRecursively(obj: any, lang: string): any {
+  /** Compile translations object */
+  compileTranslations(translations: any, lang: string): any {
+    return this.compileRecursively(translations, lang);
+  }
+
+  /**
+   * Traverse through object and replace translations strings with compile function.
+   * @param obj to be traversed
+   * @param lang from @ngx-translate
+   * @returns translation object with compile functions.
+   */
+  private compileRecursively(obj: any, lang: string): any {
     return Object.keys(obj).reduce((acc: any, key: string) => {
       const value = obj[key];
 
       return typeof value === 'string'
-        ? { ...acc, [key]: this.wrap(value, lang) }
+        ? { ...acc, [key]: this.compile(value, lang) }
         : {
-            ...acc,
-            [key]: this.wrapRecursively(value, lang),
-          };
+          ...acc,
+          [key]: this.compileRecursively(value, lang),
+        };
     }, {});
   }
 }

@@ -9,6 +9,8 @@
         "createDefaultProgram": true
       },
       "extends": [
+        "airbnb-base",
+        "airbnb-typescript/base",
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
@@ -30,7 +32,10 @@
             "style": "kebab-case"
           }
         ],
-        "no-multi-spaces": "error"
+        "no-multi-spaces": "error",
+        "import/prefer-default-export": "off",
+        "class-methods-use-this": "off",
+        "@typescript-eslint/object-curly-spacing": "off"
       }
     },
     {
