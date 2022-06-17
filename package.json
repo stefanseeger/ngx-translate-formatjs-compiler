@@ -19,9 +19,9 @@
     "lint": "eslint . --fix"
   },
   "peerDependencies": {
-    "@angular/common": "^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0",
-    "@angular/core": "^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0",
-    "@ngx-translate/core": "^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0",
+    "@angular/common": "^13.0.0 || ^14.0.0",
+    "@angular/core": "^13.0.0 || ^14.0.0",
+    "@ngx-translate/core": "^13.0.0 || ^14.0.0",
     "intl-messageformat": "^10.0.0"
   },
   "devDependencies": {

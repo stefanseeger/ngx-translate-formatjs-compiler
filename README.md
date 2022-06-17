@@ -2,7 +2,7 @@
 
 [Format.js](https://formatjs.io/) based [@ngx/translate](https://github.com/ngx-translate/core) compiler.
 
-Supports Angular 11 | 12 | 13 | 14
+Supports Angular 13 || 14
 
 ## Install
 
