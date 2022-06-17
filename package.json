@@ -1,5 +1,5 @@
 {
-  "name": "ngx-translate-formatjs-compiler",
+  "name": "ngx-translate-formatjs-compile2r",
   "version": "1.0.3",
   "author": {
     "name": "Stefan Seeger"
@@ -9,7 +9,7 @@
   },
   "scripts": {
     "ng": "ng",
-    "build": "npm run update:browserlist && ng build --configuration production",
+    "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -20,10 +20,10 @@
     "update:browserlist": "npx browserslist@latest --update-db"
   },
   "peerDependencies": {
-    "@angular/common": "11 | 12 | 13 | 14",
-    "@angular/core": "11 | 12 | 13 | 14",
-    "@ngx-translate/core": "11 | 12 | 13 | 14",
-    "intl-messageformat": "10"
+    "@angular/common": "^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0",
+    "@angular/core": "^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0",
+    "@ngx-translate/core": "^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0",
+    "intl-messageformat": "^10.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~14.0.0",
