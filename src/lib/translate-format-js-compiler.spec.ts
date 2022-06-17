@@ -25,6 +25,10 @@ class TestVVTranslateParserComponent {
 
 describe('VVTranslateParser', () => {
   let fixture: ComponentFixture<TestVVTranslateParserComponent>;
+  let compiler: TranslateFormatJsCompiler;
+  const SELECT_TEXT = 'Ich wohne in einem {text, select, A {Haus} B {Hotel} C {Keller} other {Garten}}.';
+  const PLURAL_TEXT = 'Gib mir {num, plural, =0 {Kein} =1 {Ein} =2 {Zwei} other {mehr}} Bier';
+  const HTML_TEXT = "'<h1>Headline</h1>'";
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [TestVVTranslateParserComponent],
@@ -34,14 +38,14 @@ describe('VVTranslateParser', () => {
             provide: TranslateLoader,
             useValue: {
               getTranslation: () => of({
-                TEST_SELECT:
-                    'Ich wohne in einem {text, select, A {Haus} B {Hotel} C {Keller} other {Garten}}.',
-                TEST_PLURAL:
-                    'Gib mir {num, plural, =0 {Kein} =1 {Ein} =2 {Zwei} other {mehr}} Bier',
-                DEEP: {
-                  TEST: 'deep test',
+                ...{
+                  TEST_SELECT: SELECT_TEXT,
+                  TEST_PLURAL: PLURAL_TEXT,
+                  DEEP: {
+                    TEST: 'deep test',
+                  },
+                  HTML: HTML_TEXT,
                 },
-                HTML: "'<h1>Headline</h1>'",
               }),
             },
           },
@@ -53,53 +57,91 @@ describe('VVTranslateParser', () => {
           },
         }),
       ],
+      providers: [TranslateFormatJsCompiler],
     }).compileComponents();
     fixture = TestBed.createComponent(TestVVTranslateParserComponent);
+    compiler = TestBed.inject(TranslateFormatJsCompiler);
     fixture.detectChanges();
   }));
+  describe('should compileTranslations', () => {
+    it.each`
+      text   | translation
+      ${'A'} | ${'Ich wohne in einem Haus.'}
+      ${'B'} | ${'Ich wohne in einem Hotel.'}
+      ${'C'} | ${'Ich wohne in einem Keller.'}
+      ${'D'} | ${'Ich wohne in einem Garten.'}
+      ${'E'} | ${'Ich wohne in einem Garten.'}
+    `(
+      'should translate select correctly with $text',
+      ({ text, translation }) => {
+        fixture.componentInstance.text = text;
+        fixture.detectChanges();
 
-  it.each`
-    text   | translation
-    ${'A'} | ${'Ich wohne in einem Haus.'}
-    ${'B'} | ${'Ich wohne in einem Hotel.'}
-    ${'C'} | ${'Ich wohne in einem Keller.'}
-    ${'D'} | ${'Ich wohne in einem Garten.'}
-    ${'E'} | ${'Ich wohne in einem Garten.'}
-  `('should translate select correctly with $text', ({ text, translation }) => {
-    fixture.componentInstance.text = text;
-    fixture.detectChanges();
+        expect(
+          fixture.debugElement.nativeElement.querySelector('#select')
+            .textContent,
+        ).toBe(translation);
+      },
+    );
 
-    expect(
-      fixture.debugElement.nativeElement.querySelector('#select').textContent,
-    ).toBe(translation);
+    it.each`
+      num  | translation
+      ${0} | ${'Gib mir Kein Bier'}
+      ${1} | ${'Gib mir Ein Bier'}
+      ${2} | ${'Gib mir Zwei Bier'}
+      ${3} | ${'Gib mir mehr Bier'}
+      ${4} | ${'Gib mir mehr Bier'}
+    `('should translate plural correctly with $num', ({ num, translation }) => {
+      fixture.componentInstance.num = num;
+      fixture.detectChanges();
+
+      expect(
+        fixture.debugElement.nativeElement.querySelector('#plural').textContent,
+      ).toBe(translation);
+    });
+
+    it('should support deep', () => {
+      expect(
+        fixture.debugElement.nativeElement.querySelector('#deep').textContent,
+      ).toBe('deep test');
+    });
+
+    it('should support html', () => {
+      expect(
+        fixture.debugElement.nativeElement.querySelector('#html > h1')
+          .textContent,
+      ).toBe('Headline');
+    });
   });
 
-  it.each`
-    num  | translation
-    ${0} | ${'Gib mir Kein Bier'}
-    ${1} | ${'Gib mir Ein Bier'}
-    ${2} | ${'Gib mir Zwei Bier'}
-    ${3} | ${'Gib mir mehr Bier'}
-    ${4} | ${'Gib mir mehr Bier'}
-  `('should translate plural correctly with $num', ({ num, translation }) => {
-    fixture.componentInstance.num = num;
-    fixture.detectChanges();
+  describe('should compile', () => {
+    it.each`
+      text   | translation
+      ${'A'} | ${'Ich wohne in einem Haus.'}
+      ${'B'} | ${'Ich wohne in einem Hotel.'}
+      ${'C'} | ${'Ich wohne in einem Keller.'}
+      ${'D'} | ${'Ich wohne in einem Garten.'}
+      ${'E'} | ${'Ich wohne in einem Garten.'}
+    `(
+      'should translate select correctly with $text',
+      ({ text, translation }) => {
+        expect((compiler.compile(SELECT_TEXT, 'de') as any)({ text })).toBe(
+          translation,
+        );
+      },
+    );
 
-    expect(
-      fixture.debugElement.nativeElement.querySelector('#plural').textContent,
-    ).toBe(translation);
-  });
-
-  it('should support deep', () => {
-    expect(
-      fixture.debugElement.nativeElement.querySelector('#deep').textContent,
-    ).toBe('deep test');
-  });
-
-  it('should support html', () => {
-    expect(
-      fixture.debugElement.nativeElement.querySelector('#html > h1')
-        .textContent,
-    ).toBe('Headline');
+    it.each`
+      num  | translation
+      ${0} | ${'Gib mir Kein Bier'}
+      ${1} | ${'Gib mir Ein Bier'}
+      ${2} | ${'Gib mir Zwei Bier'}
+      ${3} | ${'Gib mir mehr Bier'}
+      ${4} | ${'Gib mir mehr Bier'}
+    `('should translate plural correctly with $num', ({ num, translation }) => {
+      expect((compiler.compile(PLURAL_TEXT, 'de') as any)({ num })).toBe(
+        translation,
+      );
+    });
   });
 });

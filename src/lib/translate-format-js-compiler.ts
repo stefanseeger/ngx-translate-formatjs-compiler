@@ -22,7 +22,8 @@ export class TranslateFormatJsCompiler extends TranslateCompiler {
 
   /** Compile translations object */
   compileTranslations(translations: any, lang: string): any {
-    return this.compileRecursively(translations, lang);
+    this.compileRecursively(translations, lang);
+    return translations;
   }
 
   /**
@@ -31,16 +32,16 @@ export class TranslateFormatJsCompiler extends TranslateCompiler {
    * @param lang from @ngx-translate
    * @returns translation object with compile functions.
    */
-  private compileRecursively(obj: any, lang: string): any {
-    return Object.keys(obj).reduce((acc: any, key: string) => {
+  private compileRecursively(obj: any, lang: string): void {
+    Object.keys(obj).forEach((key: string) => {
       const value = obj[key];
 
-      return typeof value === 'string'
-        ? { ...acc, [key]: this.compile(value, lang) }
-        : {
-          ...acc,
-          [key]: this.compileRecursively(value, lang),
-        };
-    }, {});
+      if (typeof value === 'string') {
+        // eslint-disable-next-line no-param-reassign
+        obj[key] = this.compile(value, lang);
+      } else {
+        this.compileRecursively(value, lang);
+      }
+    });
   }
 }
