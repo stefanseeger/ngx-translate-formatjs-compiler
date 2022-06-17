@@ -1,6 +1,6 @@
 {
-  "name": "ngx-translate-formatjs-compile2r",
-  "version": "1.0.3",
+  "name": "ngx-translate-formatjs-compiler",
+  "version": "1.0.4",
   "author": {
     "name": "Stefan Seeger"
   },
@@ -16,8 +16,7 @@
     "test:ci": "jest --runInBand",
     "patch": "npm version patch",
     "prerelease": "npm version prerelease",
-    "lint": "eslint . --fix",
-    "update:browserlist": "npx browserslist@latest --update-db"
+    "lint": "eslint . --fix"
   },
   "peerDependencies": {
     "@angular/common": "^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0",
