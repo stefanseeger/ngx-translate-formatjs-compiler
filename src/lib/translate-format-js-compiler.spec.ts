@@ -143,5 +143,26 @@ describe('TranslateFormatJsCompiler', () => {
         translation,
       );
     });
+
+    it.each`
+      num  | translation
+      ${0} | ${"It's my cat's 0th birthday!"}
+      ${1} | ${"It's my cat's 1st birthday!"}
+      ${2} | ${"It's my cat's 2nd birthday!"}
+      ${3} | ${"It's my cat's 3rd birthday!"}
+      ${4} | ${"It's my cat's 4th birthday!"}
+    `(
+      'should translate selectordinal correctly with $num',
+      ({ num, translation }) => {
+        expect(
+          (
+            compiler.compile(
+              "It's my cat's {num, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} birthday!",
+              'en',
+            ) as any
+          )({ num }),
+        ).toBe(translation);
+      },
+    );
   });
 });
