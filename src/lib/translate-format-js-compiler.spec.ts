@@ -17,21 +17,21 @@ import { TranslateFormatJsCompiler } from './translate-format-js-compiler';
     <div id="html" [innerHtml]="'HTML' | translate"></div>
   `,
 })
-class TestVVTranslateParserComponent {
+class TestTranslateFormatJsCompilerComponent {
   @Input() num = 0;
 
   @Input() text = '';
 }
 
-describe('VVTranslateParser', () => {
-  let fixture: ComponentFixture<TestVVTranslateParserComponent>;
+describe('TranslateFormatJsCompiler', () => {
+  let fixture: ComponentFixture<TestTranslateFormatJsCompilerComponent>;
   let compiler: TranslateFormatJsCompiler;
   const SELECT_TEXT = 'Ich wohne in einem {text, select, A {Haus} B {Hotel} C {Keller} other {Garten}}.';
   const PLURAL_TEXT = 'Gib mir {num, plural, =0 {Kein} =1 {Ein} =2 {Zwei} other {mehr}} Bier';
   const HTML_TEXT = "'<h1>Headline</h1>'";
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [TestVVTranslateParserComponent],
+      declarations: [TestTranslateFormatJsCompilerComponent],
       imports: [
         TranslateModule.forRoot({
           loader: {
@@ -59,7 +59,7 @@ describe('VVTranslateParser', () => {
       ],
       providers: [TranslateFormatJsCompiler],
     }).compileComponents();
-    fixture = TestBed.createComponent(TestVVTranslateParserComponent);
+    fixture = TestBed.createComponent(TestTranslateFormatJsCompilerComponent);
     compiler = TestBed.inject(TranslateFormatJsCompiler);
     fixture.detectChanges();
   }));
