@@ -1,8 +1,6 @@
-# ngx-translate-formatjs-compiler [![Node.js CI](https://github.com/stefanseeger/ngx-translate-formatjs-compiler/actions/workflows/node.js.yml/badge.svg)](https://github.com/stefanseeger/ngx-translate-formatjs-compiler/actions/workflows/node.js.yml) [![npm version](https://badge.fury.io/js/ngx-translate-formatjs-compiler.svg)](https://badge.fury.io/js/ngx-translate-formatjs-compiler)
+# ngx-translate-formatjs-compiler [![Node.js CI](https://github.com/stefanseeger/ngx-translate-formatjs-compiler/actions/workflows/node.js.yml/badge.svg)](https://github.com/stefanseeger/ngx-translate-formatjs-compiler/actions/workflows/node.js.yml) [![npm version](https://badge.fury.io/js/ngx-translate-formatjs-compiler.svg)](https://badge.fury.io/js/ngx-translate-formatjs-compiler) [![CodeQL](https://github.com/stefanseeger/ngx-translate-formatjs-compiler/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/stefanseeger/ngx-translate-formatjs-compiler/actions/workflows/codeql-analysis.yml)
 
 [Format.js](https://formatjs.io/) based [@ngx/translate](https://github.com/ngx-translate/core) compiler.
-
-[![CodeQL](https://github.com/stefanseeger/ngx-translate-formatjs-compiler/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/stefanseeger/ngx-translate-formatjs-compiler/actions/workflows/codeql-analysis.yml)
 
 Supports Angular 13 || 14
 
