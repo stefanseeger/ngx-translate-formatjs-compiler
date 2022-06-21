@@ -2,6 +2,8 @@
 
 [Format.js](https://formatjs.io/) based [@ngx/translate](https://github.com/ngx-translate/core) compiler.
 
+[![CodeQL](https://github.com/stefanseeger/ngx-translate-formatjs-compiler/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/stefanseeger/ngx-translate-formatjs-compiler/actions/workflows/codeql-analysis.yml)
+
 Supports Angular 13 || 14
 
 ## Install
