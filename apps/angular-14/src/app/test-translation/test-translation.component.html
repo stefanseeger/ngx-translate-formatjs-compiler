@@ -1,0 +1,10 @@
+<h1>{{'APP_TITLE' | translate:{version:version} }}</h1>
+<div [innerHTML]="'APP_HTML' | translate"></div>
+<div>
+  <ng-container *ngFor="let i of ['A', 'B', 'C', 'D', 'E']">
+    <div [id]="'select-' + i">{{'APP_SELECT' | translate: {text: i} }}</div>
+  </ng-container>
+  <ng-container *ngFor="let i of [0,1,2,3,4]">
+    <div [id]="'plural-' + i">{{'APP_PLURAL' | translate: {num: i} }}</div>
+  </ng-container>
+</div>

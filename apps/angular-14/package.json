@@ -1,0 +1,40 @@
+{
+  "version": "0.0.0",
+  "name": "angular-14",
+  "private": true,
+  "scripts": {
+    "build": "ng build",
+    "ng": "ng",
+    "start": "ng serve",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:ci": "jest --ci --runInBand",
+    "watch": "ng build --watch --configuration development"
+  },
+  "dependencies": {
+    "@angular/animations": "^14.1.0",
+    "@angular/common": "^14.1.0",
+    "@angular/compiler": "^14.1.0",
+    "@angular/core": "^14.1.0",
+    "@angular/forms": "^14.1.0",
+    "@angular/platform-browser": "^14.1.0",
+    "@angular/platform-browser-dynamic": "^14.1.0",
+    "@angular/router": "^14.1.0",
+    "@ngx-translate/core": "^13.0.0",
+    "ngx-translate-formatjs-compiler": "^1.0.8",
+    "rxjs": "~7.5.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^14.1.0",
+    "@angular/cli": "~14.1.0",
+    "@angular/compiler-cli": "^14.1.0",
+    "@types/jest": "^28.1.1",
+    "@types/node": "^12.20.55",
+    "intl-messageformat": "^10.1.1",
+    "jest": "^28.1.3",
+    "jest-preset-angular": "^12.2.0",
+    "typescript": "~4.6.2"
+  }
+}
