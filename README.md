@@ -2,7 +2,7 @@
 
 [Format.js](https://formatjs.io/) based [@ngx/translate](https://github.com/ngx-translate/core) compiler.
 
-Supports Angular 13 || 14
+Supports Angular >= 10
 
 ## Install
 
@@ -32,6 +32,11 @@ import { AppComponent } from './app';
 })
 export class AppModule {}
 ```
+
+## Troubleshooting
+
+- With FormatJS HTML tags must be escaped with a `'` in the translation. E.g. `'<h1>'Your content goes here'</h1>'`
+- With FormatJS interpolation variables are surrounded by single brackets. E.g. `I am having {count} cats`
 
 ## Further links
 

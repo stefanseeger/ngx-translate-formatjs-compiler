@@ -19,8 +19,8 @@
     "lint": "eslint . --fix"
   },
   "peerDependencies": {
-    "@angular/common": ">= 13",
-    "@angular/core": ">= 13",
+    "@angular/common": ">= 10",
+    "@angular/core": ">= 10",
     "@ngx-translate/core": ">= 13",
     "intl-messageformat": ">= 10"
   },

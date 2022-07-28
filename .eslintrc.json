@@ -35,7 +35,8 @@
         "no-multi-spaces": "error",
         "import/prefer-default-export": "off",
         "class-methods-use-this": "off",
-        "@typescript-eslint/object-curly-spacing": "off"
+        "@typescript-eslint/object-curly-spacing": "off",
+        "max-len": [2, 160]
       }
     },
     {
